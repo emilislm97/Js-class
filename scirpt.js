@@ -1,9 +1,9 @@
 class Muessise {
 
   Isciler = [
-    [ ],
-    [ ],
-    [ ]
+    [],
+    [],
+    []
   ]
   constructor(ad, fillial) {
     this.SirketAdi = ad;
@@ -12,6 +12,7 @@ class Muessise {
 
   Gonder() {
     let data = this.Isciler
+
     let ad = document.getElementById("i1").value;
     let vezife = document.getElementById("i2").value;
     let maas = document.getElementById("i3").value;
@@ -48,15 +49,25 @@ class Muessise {
   }
 }
 
-let A = new Muessise("A şirkəti", "Elmlər");
-document.getElementsByTagName("h1")[0].innerHTML =A.SirketAdi;
-document.getElementsByTagName("h3")[0].innerHTML =A.Fillial;
+
+let A = new Muessise("A şirkəti", "Ünvan");
+document.getElementsByTagName("h1")[0].innerHTML = A.SirketAdi;
+document.getElementsByTagName("h3")[0].innerHTML = A.Fillial;
 document.getElementsByTagName("main")[0].innerHTML = A.IscilerSiyahi();
 
 function Send() {
-  document.getElementsByTagName("main")[0].innerHTML = A.Gonder();
-  document.getElementsByTagName("main")[0].innerHTML = A.IscilerSiyahi();
-  for(i=0; i<=2;i++){
-    document.getElementsByTagName("input")[i].value="";
+  let aa = document.getElementById("i1").value;
+  let bb = document.getElementById("i2").value;
+  let cc = document.getElementById("i3").value;
+
+  if (aa == "" || bb == "" || cc == "") {
+    alert("Məlumat tam daxil edilməyib!!");
+  } else {
+    document.getElementsByTagName("main")[0].innerHTML = A.Gonder();
+    document.getElementsByTagName("main")[0].innerHTML = A.IscilerSiyahi();
+    for (i = 0; i <= 2; i++) {
+      document.getElementsByTagName("input")[i].value = "";
+    }
+
   }
 }
